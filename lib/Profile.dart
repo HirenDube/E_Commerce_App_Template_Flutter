@@ -26,8 +26,8 @@ class _ProfileState extends State<Profile> {
               alignment: Alignment.bottomCenter,
               height: 200,
               width: MediaQuery.of(context).size.width,
-              // width: 395,
-              color: Colors.greenAccent,
+              // color: Colors.greenAccent,
+              decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/profileBg.jpg"),fit: BoxFit.cover)),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

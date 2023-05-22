@@ -136,8 +136,7 @@ class HomeScreen extends StatelessWidget {
                                   color: Colors.blueGrey),
                               width: 115,
                               height: 115,
-                              child:
-                                  Image.asset("assets/productsPng/toys.png"),
+                              child: Image.asset("assets/productsPng/toys.png"),
                             ),
                             Text(
                               "Toys",
@@ -237,9 +236,8 @@ class HomeScreen extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   children: [
                     InkWell(
-                      onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (context) => SmartPhones())),
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => SmartPhones())),
                       child: Container(
                           alignment: Alignment.topLeft,
                           margin: EdgeInsets.all(8),
@@ -262,7 +260,9 @@ class HomeScreen extends StatelessWidget {
                                 children: [
                                   TextSpan(
                                       text: "   23 Brands",
-                                      style: TextStyle(fontSize: 20,fontWeight: FontWeight.normal))
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.normal))
                                 ],
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
@@ -281,8 +281,8 @@ class HomeScreen extends StatelessWidget {
                                   colorFilter: ColorFilter.mode(
                                       Colors.white.withOpacity(0.6),
                                       BlendMode.dstATop),
-                                  image: AssetImage(
-                                      "assets/images/fashionBG.jpg"),
+                                  image:
+                                      AssetImage("assets/images/fashionBG.jpg"),
                                   fit: BoxFit.cover),
                               borderRadius: BorderRadius.circular(20),
                               color: Colors.blueGrey),
@@ -294,7 +294,9 @@ class HomeScreen extends StatelessWidget {
                                 children: [
                                   TextSpan(
                                       text: "  13 Brands",
-                                      style: TextStyle(fontSize: 20,fontWeight: FontWeight.normal))
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.normal))
                                 ],
                                 style: TextStyle(
                                     fontSize: 30,
@@ -320,8 +322,8 @@ class HomeScreen extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   children: [
                     InkWell(
-                      onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => PS5())),
+                      onTap: () => Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) => PS5())),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -364,8 +366,8 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => S23())),
+                      onTap: () => Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) => S23())),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -419,8 +421,7 @@ class HomeScreen extends StatelessWidget {
                                 color: Colors.blueGrey),
                             width: 270,
                             height: 200,
-                            child:
-                                Image.asset("assets/images/macbookpro.png"),
+                            child: Image.asset("assets/images/macbookpro.png"),
                           ),
                           Text(
                             "MacBook Pro M2 (1 TB)",
@@ -508,6 +509,8 @@ class HomeScreen extends StatelessWidget {
               height: 50,
               width: 280,
               child: TextField(
+                onTap: () =>
+                    showSearch(context: context, delegate: SearchingDelegate()),
                 decoration: InputDecoration(
                     prefixIcon: Icon(
                       Icons.search,
@@ -538,5 +541,50 @@ class HomeScreen extends StatelessWidget {
         )
       ],
     ));
+  }
+}
+
+class SearchingDelegate extends SearchDelegate {
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    // TODO: implement buildActions
+    return [IconButton(onPressed: () {Navigator.pop(context);}, icon: Icon(Icons.close))];
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    // TODO: implement buildLeading
+    return IconButton(onPressed: () {Navigator.pop(context);}, icon: Icon(Icons.arrow_back));
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    // TODO: implement buildResults
+    return ListView(
+      children: [
+        ListTile(
+          title:
+              Text("Currently seaarching functionality isn't working well !!"),
+        )
+      ],
+    );
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext) {
+    // TODO: implement buildSuggestions
+    return ListView(
+      children: [
+        ListTile(
+          title: Text("IPhone 14 pro max"),
+        ),ListTile(
+          title: Text("MacBook pro M2 (1 TB)"),
+        ),ListTile(
+          title: Text("Galaxy S23 Ultra"),
+        ),ListTile(
+          title: Text("Play Station 5"),
+        ),
+      ],
+    );
   }
 }
