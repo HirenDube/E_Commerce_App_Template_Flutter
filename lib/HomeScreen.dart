@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:e_commerce_ui_app/3rd%20Grid/Iphone.dart';
 import 'package:e_commerce_ui_app/3rd%20Grid/MacBook.dart';
 import 'package:e_commerce_ui_app/3rd%20Grid/PS5.dart';
@@ -15,8 +17,14 @@ import '1st Grid/Toys.dart';
 import '2nd Grid/Fashion.dart';
 import '2nd Grid/SmartPhones.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  // const HomeScreen({Key? key}) : super(key: key);
+  double top = 10,left=10,right=10;
 
   @override
   Widget build(BuildContext context) {
@@ -500,44 +508,52 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 10,
-          left: 10,
-          right: 10,
+          top: top,
+          left: left,
+          right: right,
           child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+              GestureDetector(
+              //   onPanUpdate: (data){
+              //   setState(() {
+              //     left = max(0, left+data.delta.dx);
+              //     top = max(0, top+data.delta.dy);
+              //   });
+              // },
+                child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             SizedBox(
-              height: 50,
-              width: 280,
-              child: TextField(
-                onTap: () =>
-                    showSearch(context: context, delegate: SearchingDelegate()),
-                decoration: InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.search,
-                      color: Colors.white,
-                    ),
-                    labelText: "Search",
-                    labelStyle: TextStyle(color: Colors.white)),
-              ),
+                height: 50,
+                width: 280,
+                child: TextField(
+                  onTap: () =>
+                      showSearch(context: context, delegate: SearchingDelegate()),
+                  decoration: InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: Colors.white,
+                      ),
+                      labelText: "Search",
+                      labelStyle: TextStyle(color: Colors.white)),
+                ),
             ),
             Container(
-              height: 50,
-              width: 50,
-              decoration: BoxDecoration(
-                color: CupertinoColors.systemGreen,
-                borderRadius: BorderRadius.circular(20),
-                // border: Border.all(width: 1, color: Colors.black)),
-              ),
-              child: InkWell(
-                  onTap: () {
-                    Fluttertoast.showToast(msg: "Notification Button Pressed");
-                  },
-                  child: Icon(
-                    Icons.notifications,
-                    color: Colors.white,
-                  )),
+                height: 50,
+                width: 50,
+                decoration: BoxDecoration(
+                  color: CupertinoColors.systemGreen,
+                  borderRadius: BorderRadius.circular(20),
+                  // border: Border.all(width: 1, color: Colors.black)),
+                ),
+                child: InkWell(
+                    onTap: () {
+                      Fluttertoast.showToast(msg: "Notification Button Pressed");
+                    },
+                    child: Icon(
+                      Icons.notifications,
+                      color: Colors.white,
+                    )),
             )
           ]),
+              ),
         )
       ],
     ));
