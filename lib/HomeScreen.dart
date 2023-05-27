@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:e_commerce_ui_app/3rd%20Grid/Iphone.dart';
 import 'package:e_commerce_ui_app/3rd%20Grid/MacBook.dart';
@@ -8,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '1st Grid/Cloathes.dart';
 import '1st Grid/Electronics.dart';
 import '1st Grid/HomeDecorItems.dart';
@@ -505,6 +505,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 80,
               )
             ],
+
           ),
         ),
         Positioned(
@@ -522,7 +523,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             SizedBox(
                 height: 50,
-                width: 280,
+                // width: 280,
+              width: MediaQuery.of(context).size.width - 100,
                 child: TextField(
                   onTap: () =>
                       showSearch(context: context, delegate: SearchingDelegate()),
